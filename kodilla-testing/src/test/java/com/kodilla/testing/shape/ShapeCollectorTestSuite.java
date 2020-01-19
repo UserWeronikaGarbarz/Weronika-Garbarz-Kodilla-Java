@@ -60,7 +60,7 @@ public class ShapeCollectorTestSuite {
         shapeCollector.removeFigure(circle);
         shapeCollector.removeFigure(square);
         shapeCollector.removeFigure(triangle);
-        
+
         Assert.assertTrue(shapeCollector.isEmpty());
     }
 
