@@ -2,23 +2,34 @@ package com.kodilla.testing.forum.statistics;
 
 public class StatisticsCounter {
 
-    double quantityOfUsers;
-    double quantityOfPosts;
-    double quantityOfComments;
-    double averagePostsPerUser;
-    double averageCommentsPerUser;
-    double averageCommentsPerPost;
+    private double quantityOfUsers;
+    private double quantityOfPosts;
+    private double quantityOfComments;
+    private double averagePostsPerUser;
+    private double averageCommentsPerUser;
+    private double averageCommentsPerPost;
 
 
     void calculateAdvStatistics(Statistics statistics) {
-        quantityOfUsers = (double) statistics.usersNames().size();
-        quantityOfPosts = (double) statistics.postsCount();
-        quantityOfComments = (double) statistics.commentsCount();
+        quantityOfUsers = statistics.usersNames().size();
+        quantityOfPosts = statistics.postsCount();
+        quantityOfComments = statistics.commentsCount();
         averagePostsPerUser = quantityOfPosts / quantityOfUsers;
         averageCommentsPerUser = quantityOfComments / quantityOfUsers;
         averageCommentsPerPost = quantityOfComments / quantityOfPosts;
-    }
 
+        if(averagePostsPerUser == Double.POSITIVE_INFINITY) {
+            averagePostsPerUser = 0;
+        }
+
+        if(averageCommentsPerUser == Double.POSITIVE_INFINITY) {
+            averageCommentsPerUser = 0;
+        }
+
+        if(averageCommentsPerPost == Double.POSITIVE_INFINITY) {
+            averageCommentsPerPost = 0;
+        }
+    }
 
     void showStatistics() {
         System.out.println(" Ilość uzytkowników: " + quantityOfUsers);
@@ -27,18 +38,6 @@ public class StatisticsCounter {
         System.out.println(" Średnia postów na uzytkownika: " + averagePostsPerUser);
         System.out.println(" Średnia komentarzy na uzytkownika: " + averageCommentsPerUser);
         System.out.println(" Średnia komentarzy na post: " + averageCommentsPerPost);
-    }
-
-    public double getQuantityOfUsers() {
-        return quantityOfUsers;
-    }
-
-    public double getQuantityOfPosts() {
-        return quantityOfPosts;
-    }
-
-    public double getQuantityOfComments() {
-        return quantityOfComments;
     }
 
     public double getAveragePostsPerUser() {
