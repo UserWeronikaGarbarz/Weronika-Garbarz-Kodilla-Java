@@ -48,8 +48,8 @@ public class BoardTestSuite {
                 "Archive data searching has to be optimized",
                 user4,
                 user2,
-                LocalDate.now(), //getCreated()
-                LocalDate.now().plusDays(5)); //getDeadline()
+                LocalDate.now(),
+                LocalDate.now().plusDays(5));
         Task task6 = new Task("Use Streams",
                 "use Streams rather than for-loops in predictions",
                 user4,
@@ -156,16 +156,16 @@ public class BoardTestSuite {
         List<Long> listOfDays = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(z -> z.getTasks().stream())
-                .map(task -> DAYS.between(task.getCreated(), task.getDeadline()))
+                .map(task -> DAYS.between(task.getCreated(), LocalDate.now()))
                 .collect(toList());
+
+        System.out.println(listOfDays);
 
         double average = LongStream.range(0, listOfDays.size()).map(i -> listOfDays.get((int) i)).average().getAsDouble();
 
-        //Then
-        Assert.assertEquals(18.333333333333333, average, 0);
+        System.out.println(average);
 
+        //Then
+        Assert.assertEquals(10.0, average, 0);
     }
 }
-
-
-
