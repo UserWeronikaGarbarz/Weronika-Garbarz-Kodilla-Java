@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.LongStream;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 import static java.util.stream.Collectors.toList;
@@ -153,15 +152,11 @@ public class BoardTestSuite {
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
 
-        List<Long> listOfDays = project.getTaskLists().stream()
+        double average = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(z -> z.getTasks().stream())
-                .map(task -> DAYS.between(task.getCreated(), LocalDate.now()))
-                .collect(toList());
-
-        System.out.println(listOfDays);
-
-        double average = LongStream.range(0, listOfDays.size()).map(i -> listOfDays.get((int) i)).average().getAsDouble();
+                .map(task -> DAYS.between(task.getCreated(), LocalDate.now())).mapToLong(a -> a)
+                .average().getAsDouble();
 
         System.out.println(average);
 
