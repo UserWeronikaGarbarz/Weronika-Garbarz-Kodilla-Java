@@ -7,7 +7,7 @@ public class FlightFinderRunner {
         FlightFinder flightFinder = new FlightFinder();
 
         try {
-            flightFinder.findFlight(new Flight("Madridddd", "Barcelona"));
+            flightFinder.findFlight(new Flight("Madriddd", "Barcelona"));
         } catch (RouteNotFoundException e) {
             System.out.println("Exceptiotn handled.");
         }
