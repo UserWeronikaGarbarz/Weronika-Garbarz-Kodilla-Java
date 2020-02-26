@@ -2,11 +2,14 @@ package com.kodilla.exception.test;
 
 public class FlightFinderRunner {
 
-    public static void main(String[] args) throws RouteNotFoundException {
+    public static void main(String[] args) {
 
         FlightFinder flightFinder = new FlightFinder();
-        Flight flight = new Flight("Monako", "Barcelona");
-        flightFinder.findFlight(flight);
+
+        try {
+            flightFinder.findFlight(new Flight("Madridddd", "Barcelona"));
+        } catch (RouteNotFoundException e) {
+            System.out.println("Exceptiotn handled.");
+        }
     }
 }
-

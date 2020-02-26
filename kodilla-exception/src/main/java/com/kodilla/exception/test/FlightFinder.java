@@ -1,6 +1,8 @@
 package com.kodilla.exception.test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FlightFinder {
@@ -9,18 +11,16 @@ public class FlightFinder {
 
         Map<String, Boolean> airports = new HashMap<>();
         airports.put("Barcelona", true);
-        airports.put("Madrid", true);
+        airports.put("Madrid", false);
+        airports.put("Berlin", true);
+        airports.put("Porto", false);
 
-        try {
-            boolean arrival = airports.get(flight.getArrivalAirport());
-            boolean departure = airports.get(flight.getDepartureAirport());
-            if (arrival && departure) {
-                System.out.println("Czy mozna tam leciec: tak");
-            } else {
-                System.out.println("Czy mozna tam leciec: nie");
-            }
-        } catch (NullPointerException e) {
-            throw new RouteNotFoundException("Nie ma takiej trasy");
+        List<String> airportsList = new ArrayList<>(airports.keySet());
+
+        if (airportsList.contains(flight.getArrivalAirport()) && airportsList.contains(flight.getDepartureAirport())) {
+            System.out.println("Airport is found.");
+        } else {
+            throw new RouteNotFoundException();
         }
     }
 }
