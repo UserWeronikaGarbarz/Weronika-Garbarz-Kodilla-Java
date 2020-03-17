@@ -139,7 +139,10 @@ public class CompanyDaoTestSuite {
         companyDao.save(javaMasters);
         companyDao.save(javax);
         companyDao.save(javageeks);
-        List<Company> results = companyDao.retrieveCompanies();
+
+        List<Company> results = companyDao.getCompanyByNameLike("Jav%");
+
+        System.out.println("COMPANIES" + results);
 
         int johnId = johnSmith.getId();
         int martinId = martinSmith.getId();

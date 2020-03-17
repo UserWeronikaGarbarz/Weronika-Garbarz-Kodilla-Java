@@ -8,8 +8,8 @@ import java.util.Objects;
 
 @NamedNativeQuery(
         name = "Company.retrieveCompanies",
-        query = "SELECT* FROM COMPANIES" +
-                " WHERE COMPANY_NAME LIKE 'Jav%'",
+        query = "SELECT * FROM COMPANIES" +
+                " WHERE COMPANY_NAME LIKE :parameter",
         resultClass = Company.class
 )
 @Entity
@@ -59,9 +59,7 @@ public class Company {
 
     @Override
     public String toString() {
-        return "Company{" +
-                "name='" + name + '\'' +
-                '}';
+        return "Company: " + name + " ";
     }
 
     @Override
