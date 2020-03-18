@@ -22,50 +22,44 @@ public class InvoiceDaoTestSuite {
     @Test
     public void testInvoiceDaoSave() {
         //Given
-        BigDecimal milkPrice = new BigDecimal(6);
-        BigDecimal eggsPrice = new BigDecimal(7);
-        BigDecimal sugarPrice = new BigDecimal(4);
-        BigDecimal breadPrice = new BigDecimal(2);
+        Product laptopProduct = new Product("Laptop");
+        Product tvProduct = new Product("TV");
+        Item macbook = new Item(laptopProduct, new BigDecimal(6000), 1, new BigDecimal(6000));
+        Item asus = new Item(laptopProduct, new BigDecimal(3000), 2, new BigDecimal(6000));
+        Item lg = new Item(tvProduct, new BigDecimal(3000), 3, new BigDecimal(9000));
 
-        int milkQuantity = 100000000;
-        int eggsQuantity = 200000000;
-        int sugarQuantity = 300000000;
-        int breadQuantity = 400000000;
+        macbook.setProduct(laptopProduct);
+        asus.setProduct(laptopProduct);
+        lg.setProduct(tvProduct);
+        laptopProduct.getItem().add(macbook);
+        laptopProduct.getItem().add(asus);
+        tvProduct.getItem().add(lg);
 
-        Product milkProduct = new Product("Milk");
-        Product eggProduct = new Product("Eggs");
-        Product sugarProduct = new Product("Sugar");
-        Product breadProduct = new Product("Bread");
-
-        Item milk = new Item(milkProduct, milkPrice, milkQuantity, milkPrice.multiply(BigDecimal.valueOf(milkQuantity)));
-        Item eggs = new Item(eggProduct, eggsPrice, eggsQuantity, eggsPrice.multiply(BigDecimal.valueOf(eggsQuantity)));
-        Item sugar = new Item(sugarProduct, sugarPrice, sugarQuantity, sugarPrice.multiply(BigDecimal.valueOf(sugarQuantity)));
-        Item bread = new Item(breadProduct, breadPrice, breadQuantity, breadPrice.multiply(BigDecimal.valueOf(breadQuantity)));
-
-        milk.setProduct(milkProduct);
-        eggs.setProduct(eggProduct);
-        sugar.setProduct(sugarProduct);
-        bread.setProduct(breadProduct);
-
-        Invoice invoice = new Invoice("NS/22/100");
-        invoice.getItems().add(milk);
-        invoice.getItems().add(eggs);
-        invoice.getItems().add(sugar);
-        invoice.getItems().add(bread);
-
-        milk.setInvoice(invoice);
-        eggs.setInvoice(invoice);
-        sugar.setInvoice(invoice);
-        bread.setInvoice(invoice);
+        Invoice invoice22 = new Invoice("NS/22/100");
+        Invoice invoice23 = new Invoice("NS/23/100");
+        invoice22.getItems().add(macbook);
+        invoice22.getItems().add(lg);
+        invoice23.getItems().add(asus);
+        macbook.setInvoice(invoice22);
+        lg.setInvoice(invoice22);
+        asus.setInvoice(invoice23);
 
         //When
-        invoiceDao.save(invoice);
-        int id = invoice.getId();
+        invoiceDao.save(invoice22);
+        invoiceDao.save(invoice23);
+        int id22 = invoice22.getId();
+        int id23 = invoice23.getId();
 
         //Then
-        Assert.assertNotEquals(0, id);
+        Assert.assertNotEquals(0, id22);
+        Assert.assertNotEquals(0, id23);
 
         //CleanUp
-        invoiceDao.deleteById(id);
+        try {
+            invoiceDao.deleteById(id22);
+            invoiceDao.deleteById(id23);
+        } catch (Exception e) {
+            //do nothing
+        }
     }
 }
