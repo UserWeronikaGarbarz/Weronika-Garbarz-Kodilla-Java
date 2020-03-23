@@ -4,7 +4,6 @@ import com.kodilla.good.patterns.food2door.service.InformationService;
 import com.kodilla.good.patterns.food2door.service.OrderRepository;
 
 public class OrderProcessor {
-
     private InformationService informationService;
     private OrderRepository orderRepository;
 

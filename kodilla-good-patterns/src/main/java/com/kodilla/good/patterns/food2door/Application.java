@@ -5,6 +5,7 @@ import com.kodilla.good.patterns.food2door.implement.OrderService;
 import com.kodilla.good.patterns.food2door.order.OrderProcessor;
 import com.kodilla.good.patterns.food2door.order.OrderRequest;
 import com.kodilla.good.patterns.food2door.order.OrderRequestRetriever;
+import com.kodilla.good.patterns.food2door.producer.Company;
 import com.kodilla.good.patterns.food2door.producersInformation.*;
 
 public class Application {
@@ -16,10 +17,10 @@ public class Application {
         GlutenFreeShopRetriever glutenFreeShopRetriever = new GlutenFreeShopRetriever();
         HealthyShopRetriever healthyShopRetriever = new HealthyShopRetriever();
 
-        InformationRequest informationRequestWege = wegeShopRetriever.retrieve();
-        InformationRequest informationRequestExtra = extraFoodShopRetriever.retrieve1();
-        InformationRequest informationRequestGluten = glutenFreeShopRetriever.retrieve2();
-        InformationRequest informationRequestHealthy = healthyShopRetriever.retrieve3();
+        InformationRequest informationRequestWege = wegeShopRetriever.retrieveInformation();
+        InformationRequest informationRequestExtra = extraFoodShopRetriever.retrieveInformation();
+        InformationRequest informationRequestGluten = glutenFreeShopRetriever.retrieveInformation();
+        InformationRequest informationRequestHealthy = healthyShopRetriever.retrieveInformation();
 
         ListOfProducers listOfProducers = new ListOfProducers();
         listOfProducers.producerAdd(informationRequestWege);

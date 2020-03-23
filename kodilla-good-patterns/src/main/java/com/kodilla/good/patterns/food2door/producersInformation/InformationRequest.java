@@ -4,7 +4,6 @@ import com.kodilla.good.patterns.food2door.producer.Company;
 import com.kodilla.good.patterns.food2door.producer.Product;
 
 public class InformationRequest {
-
     private Company company;
     private Product product;
 

@@ -3,7 +3,6 @@ package com.kodilla.good.patterns.food2door.order;
 import com.kodilla.good.patterns.food2door.producer.Company;
 
 public class OrderDto {
-
     public Company company;
     public boolean orderIsPlaced;
 
