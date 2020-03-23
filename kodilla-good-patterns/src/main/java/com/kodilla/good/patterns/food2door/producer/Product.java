@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.Food2Door.producer;
+package com.kodilla.good.patterns.food2door.producer;
 
 public class Product {
 
@@ -12,23 +12,12 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getTypeOfProduct() {
-        return typeOfProduct;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
     @Override
     public String toString() {
-        return "Product{" +
+        return "Product {" +
                 "name='" + name + '\'' +
                 ", typeOfProduct='" + typeOfProduct + '\'' +
+                ", quantity=" + quantity +
                 '}';
     }
 }

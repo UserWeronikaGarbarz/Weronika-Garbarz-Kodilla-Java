@@ -1,7 +1,7 @@
-package com.kodilla.good.patterns.Food2Door;
+package com.kodilla.good.patterns.food2door.producersInformation;
 
-import com.kodilla.good.patterns.Food2Door.producer.Company;
-import com.kodilla.good.patterns.Food2Door.producer.Product;
+import com.kodilla.good.patterns.food2door.producer.Company;
+import com.kodilla.good.patterns.food2door.producer.Product;
 
 public class InformationRequest {
 
@@ -19,5 +19,10 @@ public class InformationRequest {
 
     public Product getProduct() {
         return product;
+    }
+
+    @Override
+    public String toString() {
+        return "\n " + company + "\n " + product;
     }
 }

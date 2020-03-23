@@ -1,6 +1,6 @@
-package com.kodilla.good.patterns.Food2Door;
+package com.kodilla.good.patterns.food2door.order;
 
-import com.kodilla.good.patterns.Food2Door.producer.Product;
+import com.kodilla.good.patterns.food2door.producer.Product;
 
 public class Order {
     private final String orderNumber;

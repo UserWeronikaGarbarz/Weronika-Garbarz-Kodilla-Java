@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.Food2Door.producer;
+package com.kodilla.good.patterns.food2door.producer;
 
 public class Company {
 
@@ -20,7 +20,11 @@ public class Company {
         return address;
     }
 
-    public Long getNip() {
-        return nip;
+    @Override
+    public String toString() {
+        return "Company Name: '" + companyName + '\'' +
+                ", address='" + address + '\'' +
+                ", nip=" + nip +
+                '}';
     }
 }
