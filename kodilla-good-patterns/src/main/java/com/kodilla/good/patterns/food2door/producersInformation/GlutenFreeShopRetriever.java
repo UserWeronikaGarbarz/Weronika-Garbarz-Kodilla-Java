@@ -8,7 +8,6 @@ public class GlutenFreeShopRetriever implements ShopRetriever {
 
     @Override
     public InformationRequest retrieveInformation() {
-
         Company glutenFreeShop = new Company("GlutenFreeShop", "Liliowa 13, 33-333 Lipowo", 7477575787727L);
         Product apples = new Product("Apples", "fruits", 500);
 
