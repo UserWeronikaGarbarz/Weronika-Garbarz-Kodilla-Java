@@ -12,7 +12,19 @@ public class Product {
         this.quantity = quantity;
     }
 
-    @Override
+    public String getName() {
+        return name;
+    }
+
+    public String getTypeOfProduct() {
+        return typeOfProduct;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+        @Override
     public String toString() {
         return "Product {" +
                 "name='" + name + '\'' +

@@ -20,6 +20,7 @@ public class InformationRequest {
         return product;
     }
 
+
     @Override
     public String toString() {
         return "\n " + company + "\n " + product;

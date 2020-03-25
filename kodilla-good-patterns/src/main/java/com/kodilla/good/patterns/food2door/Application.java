@@ -2,10 +2,10 @@ package com.kodilla.good.patterns.food2door;
 
 import com.kodilla.good.patterns.food2door.implement.MailService;
 import com.kodilla.good.patterns.food2door.implement.OrderService;
+import com.kodilla.good.patterns.food2door.implement.ShopService;
 import com.kodilla.good.patterns.food2door.order.OrderProcessor;
 import com.kodilla.good.patterns.food2door.order.OrderRequest;
 import com.kodilla.good.patterns.food2door.order.OrderRequestRetriever;
-import com.kodilla.good.patterns.food2door.producer.Company;
 import com.kodilla.good.patterns.food2door.producersInformation.*;
 
 public class Application {
@@ -33,8 +33,8 @@ public class Application {
         OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
         OrderRequest orderRequest = orderRequestRetriever.orderRetrieve();
 
-        OrderProcessor orderProcessor = new OrderProcessor(new MailService(), new OrderService());
-        orderProcessor.process(orderRequest);
+        OrderProcessor orderProcessor = new OrderProcessor(new MailService(), new OrderService(), new ShopService());
+        orderProcessor.process(orderRequest, informationRequestExtra);
     }
 
 }

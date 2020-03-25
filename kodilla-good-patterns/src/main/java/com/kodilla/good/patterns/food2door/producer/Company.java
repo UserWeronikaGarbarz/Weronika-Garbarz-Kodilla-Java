@@ -20,6 +20,10 @@ public class Company {
         return address;
     }
 
+    public Long getNip() {
+        return nip;
+    }
+
     @Override
     public String toString() {
         return "Company Name: '" + companyName + '\'' +
