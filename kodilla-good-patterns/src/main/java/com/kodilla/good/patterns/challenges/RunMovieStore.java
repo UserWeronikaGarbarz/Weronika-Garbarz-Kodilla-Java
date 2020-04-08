@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 public class RunMovieStore {
     public static void main(String[] args) {
 
-        String result = MovieStore.getMovies().entrySet().stream()
+        String result = com.kodilla.good.patterns.MovieStore.getMovies().entrySet().stream()
                 .flatMap(map -> map.getValue().stream())
                 .collect(Collectors.joining(" ! "));
 

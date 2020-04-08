@@ -2,10 +2,15 @@ package com.kodilla.stream;
 
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
+import com.kodilla.stream.world.Continent;
+import com.kodilla.stream.world.Country;
 
 import java.lang.String;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class StreamMain {
