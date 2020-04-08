@@ -19,21 +19,23 @@ public final class CompanyFacade {
     EmployeeDao employeeDao;
     public static final Logger LOGGER = LoggerFactory.getLogger(CompanyFacade.class);
 
-    public void companyFinder() throws CompanyFinderException {
+    public List<Company> companyFinder() throws CompanyFinderException {
         List<Company> companies = companyDao.getCompanyByNameLike("%Jav%");
         LOGGER.info("Companies: " + companies);
         if (companies.isEmpty()) {
             LOGGER.error(CompanyFinderException.ERR_COMPANY_NOT_FOUND);
             throw new CompanyFinderException(CompanyFinderException.ERR_COMPANY_NOT_FOUND);
         }
+        return companies;
     }
 
-    public void employeeFinder() throws CompanyFinderException {
-        List<Employee> employees = employeeDao.retrieveLastname("%Kow%");
+    public List<Employee> employeeFinder() throws CompanyFinderException {
+        List<Employee> employees = employeeDao.findEmployeeByLastname("%Smi%");
         LOGGER.info("Employees: " + employees);
         if (employees.isEmpty()) {
             LOGGER.error(CompanyFinderException.ERR_EMPLOYEE_NOT_FOUND);
             throw new CompanyFinderException(CompanyFinderException.ERR_EMPLOYEE_NOT_FOUND);
         }
+        return employees;
     }
 }

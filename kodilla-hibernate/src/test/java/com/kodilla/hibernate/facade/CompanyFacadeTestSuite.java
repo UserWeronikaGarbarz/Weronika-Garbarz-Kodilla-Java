@@ -6,6 +6,7 @@ import com.kodilla.hibernate.manytomany.dao.CompanyDao;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 import com.kodilla.hibernate.manytomany.facade.CompanyFacade;
 import com.kodilla.hibernate.manytomany.facade.CompanyFinderException;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,10 @@ public class CompanyFacadeTestSuite {
         Employee johnSmith = new Employee("John", "Smith");
         Company sqlExperts = new Company("SQL experts");
         Company javaExperts = new Company("Java experts");
+
         sqlExperts.getEmployees().add(johnSmith);
         javaExperts.getEmployees().add(johnSmith);
+
         johnSmith.getCompanies().add(sqlExperts);
         johnSmith.getCompanies().add(javaExperts);
 
@@ -39,10 +42,13 @@ public class CompanyFacadeTestSuite {
         companyDao.save(javaExperts);
 
         try {
-            companyFacade.companyFinder();
-            companyFacade.employeeFinder();
+            Assert.assertEquals(1, companyFacade.companyFinder().size());
+            Assert.assertEquals(1, companyFacade.employeeFinder().size());
+
         } catch (CompanyFinderException e) {
             //sth
         }
+        //Then
+
     }
 }

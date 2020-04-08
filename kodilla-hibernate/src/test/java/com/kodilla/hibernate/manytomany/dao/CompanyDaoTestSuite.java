@@ -89,7 +89,7 @@ public class CompanyDaoTestSuite {
         employeeDao.save(martinSmith);
         employeeDao.save(stephanieClarckson);
         employeeDao.save(lindaKovalsky);
-        List<Employee> smithDao = employeeDao.retrieveLastname("Smith");
+        List<Employee> smithDao = employeeDao.findEmployeeByLastname("Smith");
 
         List<Employee> smithList = new ArrayList<>();
         smithList.add(johnSmith);
