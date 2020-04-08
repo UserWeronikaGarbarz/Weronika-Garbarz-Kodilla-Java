@@ -6,7 +6,6 @@ import com.kodilla.hibernate.manytomany.dao.CompanyDao;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 import com.kodilla.hibernate.manytomany.facade.CompanyFacade;
 import com.kodilla.hibernate.manytomany.facade.CompanyFinderException;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

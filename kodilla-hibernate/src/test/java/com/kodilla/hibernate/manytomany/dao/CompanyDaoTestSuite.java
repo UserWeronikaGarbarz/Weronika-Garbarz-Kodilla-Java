@@ -149,7 +149,7 @@ public class CompanyDaoTestSuite {
         int stephanieId = stephanieClarckson.getId();
 
         //Then
-        Assert.assertEquals(4, results.size());
+        Assert.assertEquals(5, results.size());
 
         //CleanUp
         try {
@@ -157,7 +157,7 @@ public class CompanyDaoTestSuite {
             employeeDao.deleteById(martinId);
             employeeDao.deleteById(stephanieId);
         } catch (Exception e) {
-            //do nothing
+//            do nothing
         }
     }
 }
