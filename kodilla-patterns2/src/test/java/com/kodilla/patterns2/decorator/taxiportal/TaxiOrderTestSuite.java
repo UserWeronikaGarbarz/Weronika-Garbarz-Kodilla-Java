@@ -63,7 +63,7 @@ public class TaxiOrderTestSuite {
         //When
         BigDecimal theCost = taxiOrder.getCost();
         //Then
-        Assert.assertEquals(new BigDecimal(37), theCost);
+        Assert.assertEquals(new BigDecimal(39), theCost);
     }
 
     @Test
@@ -76,7 +76,7 @@ public class TaxiOrderTestSuite {
         //When
         String description = taxiOrder.getDescription();
         //Then
-        Assert.assertEquals("Drive a course by MyTaxi Network + child seat", description);
+        Assert.assertEquals("Drive a course by MyTaxi Network child seat child seat", description);
     }
 
     @Test
@@ -104,6 +104,6 @@ public class TaxiOrderTestSuite {
         //When
         String description = taxiOrder.getDescription();
         //Then
-        Assert.assertEquals("Drive a course by Taxi Network variant VIP + child seat", description);
+        Assert.assertEquals("Drive a course by Taxi Network variant VIP child seat", description);
     }
 }

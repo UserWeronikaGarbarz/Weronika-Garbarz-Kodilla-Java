@@ -18,7 +18,7 @@ public class PizzaOrderTestSuite {
         //When
         BigDecimal cost = pizza.getCost();
         //Then
-        Assert.assertEquals(15, cost);
+        Assert.assertEquals(new BigDecimal(15), cost);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class PizzaOrderTestSuite {
         //When
         BigDecimal cost = pizza.getCost();
         //Then
-        Assert.assertEquals(21, cost);
+        Assert.assertEquals(new BigDecimal(21), cost);
     }
 
     @Test
@@ -55,6 +55,6 @@ public class PizzaOrderTestSuite {
         String ingredients = pizza.getIngredients();
         //Then
         Assert.assertEquals("Ingredients: pizza dough, tomato sauce, " +
-                "cheese + cheese + mushrooms + pepperoni", ingredients);
+                "cheese cheese mushrooms pepperoni", ingredients);
     }
 }
