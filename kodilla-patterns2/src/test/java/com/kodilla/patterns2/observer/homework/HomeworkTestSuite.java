@@ -7,9 +7,9 @@ public class HomeworkTestSuite {
     @Test
     public void testUpdate() {
         //Given
-        TasksQueue weronika = new WeronikaHomework("Weronika");
-        TasksQueue ania = new AniaHomework("Ania");
-        TasksQueue marek = new MarekHomework("Marek");
+        TasksQueue weronika = new StudentQueue("Weronika");
+        TasksQueue ania = new StudentQueue("Ania");
+        TasksQueue marek = new StudentQueue("Marek");
 
         Task loop = new Task("loop");
         Task toString = new Task("toString");
